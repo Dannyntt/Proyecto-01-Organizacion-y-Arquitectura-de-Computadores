@@ -5,6 +5,7 @@
 
 - Matías Gil Montoya
 - Daniela Giraldo Salas
+- Gisel Lorena Jaramillo
 
 ### Curso
 
