@@ -12,6 +12,49 @@
 
 static int fork1(void);
 
+// Constructores de estructuras de comandos
+
+struct cmd*
+execcmd(void)
+{
+  struct execcmd *cmd;
+
+  cmd = malloc(sizeof(*cmd));
+  memset(cmd, 0, sizeof(*cmd));
+  cmd->type = CMD_EXEC;
+  return (struct cmd*)cmd;
+}
+
+struct cmd*
+redircmd(struct cmd *subcmd, char *file, int mode, int fd)
+{
+  struct redircmd *cmd;
+
+  cmd = malloc(sizeof(*cmd));
+  memset(cmd, 0, sizeof(*cmd));
+  cmd->type = CMD_REDIR;
+  cmd->cmd = subcmd;
+  cmd->file = file;
+  cmd->mode = mode;
+  cmd->fd = fd;
+  return (struct cmd*)cmd;
+}
+
+struct cmd*
+pipecmd(struct cmd *left, struct cmd *right)
+{
+  struct pipecmd *cmd;
+
+  cmd = malloc(sizeof(*cmd));
+  memset(cmd, 0, sizeof(*cmd));
+  cmd->type = CMD_PIPE;
+  cmd->left = left;
+  cmd->right = right;
+  return (struct cmd*)cmd;
+}
+
+// Ejecución de comandos
+
 void
 runcmd(struct cmd *cmd)
 {

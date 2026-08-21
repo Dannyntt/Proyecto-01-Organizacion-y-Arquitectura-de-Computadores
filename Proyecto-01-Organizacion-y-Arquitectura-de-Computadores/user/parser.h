@@ -3,6 +3,8 @@
 #ifndef PARSER_H
 #define PARSER_H
 
+#include "kernel/fcntl.h"
+
 #define MAXARGS 32
 
 // Tipos de comando reconocidos por el parser.

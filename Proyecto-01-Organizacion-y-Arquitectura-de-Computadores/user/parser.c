@@ -13,6 +13,7 @@
 #include "kernel/fcntl.h"
 #include "user/user.h"
 #include "user/parser.h"
+#include "user/commands.h"
 
 // Caracteres considerados espacio en blanco y símbolos especiales.
 static char whitespace[] = " \t\r\n\v";
